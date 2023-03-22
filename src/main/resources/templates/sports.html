@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+      <head>
+          <meta charset="UTF-8">
+          <link rel="stylesheet" th:href="@{webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+          <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+          <!--
+          <link href="static/style.css" rel="stylesheet" type="text/css" th:href="@{/style.css}">
+          -->
+
+          <title>Sports Data</title>
+      </head>
+<style>
+body {
+    background-color: #DADADA;
+}
+
+.headerer{
+	background-color:#787EF4;
+
+}
+.container{
+    margin:5px auto;
+
+}
+
+.content {
+	margin:5px ;
+	height: 200px;
+	width: 200px;
+	text-align:center;
+	background-color:#FFFFFF;
+	border-radius: 10px;
+	box-shadow: 3px 3px 6px #999;
+
+}
+
+.content:hover {
+    background-color:#787EF4;
+    cursor: pointer;
+    color: #FFFFFF;
+
+}
+
+.content img {
+	vertical-align:middle;
+}
+
+.image {
+    margin: 5px;
+    width: 185px;
+    height: 170px;
+    border-radius: 10px;
+    }
+.expand {
+  display:none;
+}
+#toggle:checked ~ .expand {
+  display:block;
+}
+</style>
+<body>
+<div class="headerer container-fluid border pt-2 d-flex justify-content-center text-white ">
+<h2> MP3-UF6 Data of Sports </h2>
+</div>
+<div class="container text-align: center; display: flex; flex-direction: row; justify-content: space-around; align-items: center;}">
+            <tr th:each="el: ${llista}">
+                <div class="content h-25 d-inline-block" >
+                    <img class="image" th:src="'https://source.unsplash.com/random?sport?' + ${el.anys}" >
+                    <p>Any: <span th:text="${el.anys}"/></p>
+                    <p>Total espais censats: <span th:text="${el.total_espais_censats}"/></p>
+                    <input type="checkbox" id="toggle" />
+                    <div class="expand">
+                        <p>Camps poliesportius: <span th:text="${el.camps_poliesportius}"/></p>
+                        <p>Espais de atletisme: <span th:text="${el.espais_d_atletisme}"/></p>
+                        <p>Piscines a l'aire lliure: <span th:text="${el.piscines_a_l_aire_lliure}"/></p>
+                        <p>Piscines cobertes: <span th:text="${el.piscines_cobertes}"/></p>
+                        <p>Pistes poliesportives: <span th:text="${el.pistes_poliesportives}"/></p>
+                        <p>Pavellons: <span th:text="${el.pavellons}"/></p>
+                        <p>Pistes de tennis: <span th:text="${el.pistes_de_tennis}"/></p>
+                        <p>Pistes de padel: <span th:text="${el.pistes_de_p_del}"/></p>
+                        <p>Sales esportives: <span th:text="${el.sales_esportives}"/></p>
+                        <p>Pistes d'esquaix: <span th:text="${el.pistes_d_esquaix}"/></p>
+                        <p>Frontons: <span th:text="${el.frontons}"/></p>
+                        <p>Espais de petanca: <span th:text="${el.espais_de_petanca}"/></p>
+                        <p>Altres espais esportius: <span th:text="${el.altres_espais_esportius}"/></p>
+                        <p>Rees d'activitat esportiva: <span th:text="${el.rees_d_activitat_esportiva}"/></p>
+                        <p>Instal·lacions: <span th:text="${el.instal_lacions}"/></p>
+                    </div>
+                </div>
+            </tr>
+</div>
+</body>
+</html>
